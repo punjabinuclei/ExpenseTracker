@@ -28,4 +28,24 @@ public class Expense {
         throw new UnsupportedOperationException("Unimplemented method 'orElse'");
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = (int) amount;
+    }
+
 }
