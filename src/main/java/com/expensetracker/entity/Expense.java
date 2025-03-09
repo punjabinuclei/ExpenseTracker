@@ -1,33 +1,29 @@
 package com.expensetracker.entity;
 
 import java.time.LocalDateTime;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private int id;
 
     @Column(length = 50, nullable = false)
-    String title;
+    private String title;
 
     @Column(nullable = false)
-    int amount;
+    private Double amount;
 
     @Column(updatable = false)
-    LocalDateTime addedDate;
+    private LocalDateTime addedDate;
 
-    public Expense orElse(Object object) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'orElse'");
+    // Constructor
+    public Expense() {
+        this.addedDate = LocalDateTime.now(); // Set default timestamp when created
     }
 
+    // Getters
     public int getId() {
         return id;
     }
@@ -36,16 +32,28 @@ public class Expense {
         return title;
     }
 
-    public double getAmount() {
+    public Double getAmount() {
         return amount;
+    }
+
+    public LocalDateTime getAddedDate() {
+        return addedDate;
+    }
+
+    // Setters
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
-    public void setAmount(double amount) {
-        this.amount = (int) amount;
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
+    public void setAddedDate(LocalDateTime addedDate) {
+        this.addedDate = addedDate;
+    }
 }

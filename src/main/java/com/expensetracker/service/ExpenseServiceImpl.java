@@ -18,7 +18,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 
     public Expense findById(int id) // Single Expense
     {
-        return expenseRepository.findById(id).orElse(null);
+        return expenseRepository.findById(id);
     }
 
     public List<Expense> findByAmountGreaterThan(int amount) // Amount Greater Than
